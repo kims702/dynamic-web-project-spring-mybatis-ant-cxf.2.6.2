@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Seminar" basedir=".">
+       <!-- Load properties -->
+       <property file="src/server.properties" />
+       <!-- Set classpath -->
+       <path id="base-classpath">
+             <pathelement path="src" />
+             <pathelement path="bin" />
+             <fileset dir="web/WEB-INF/lib">
+                    <include name="*.jar" />
+             </fileset>
+             <fileset dir="${ant.home}/lib" />
+       </path>
+       <!-- Configure the custom Ant tasks for the Manager application -->
+       <taskdef resource="org/apache/catalina/ant/catalina.tasks" classpathref="base-classpath" />
+       <!-- 배포 자동화 -->
+       <target name="War 생성하기">
+             <war destfile="${ant.project.name}.war" webxml="web/WEB-INF/web.xml">
+                    <lib dir="web/WEB-INF/lib" />
+                    <classes dir="build/classes" />
+                    <fileset dir="web" />
+             </war>
+       </target>
+       <target name="Tomcat에 배포하기" depends="War 생성하기">
+             <deploy url="${url}" username="${username}" password="${password}" path="/${ant.project.name}" war="${ant.project.name}.war" update="true" />
+             <delete file="${ant.project.name}.war"/>
+       </target>
+</project>

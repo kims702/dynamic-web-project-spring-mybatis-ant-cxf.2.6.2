@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ITSM" default="init" basedir=".">
+  <!-- Import file -->    
+  <property file="build.properties"/>
+  <property name="java.src.dir" value="src/main/java" />
+  <property name="java.test.dir" value="src/test/java" />
+  <property name="java.test.lib" value="src/test/lib" />
+  <property name="java.res.dir" value="src/main/resource" />
+  <property name="web.dir" value="WebContent" />
+  <property name="build.dir" value="${web.dir}/WEB-INF/classes" />
+  <echo message="${name} Build"/>
+  <path id="dev.classpath">
+      <fileset dir="${web.dir}/WEB-INF/lib">
+        <include name="*.jar" />
+      </fileset>
+      <fileset dir="${was.dir}/lib">
+        <include name="*.jar" />
+      </fileset>
+      <pathelement path="${build.dir}" />
+  </path>
+
+  <!-- Target Define -->
+  <target name="usage" description="Ant Build Usage">
+      <echo message="" />
+      <echo message="${name} build file" />
+      <echo message="-----------------------------------" />
+      <echo message="" />
+      <echo message="Available targets are:" />
+      <echo message="Compile" />
+      <echo message="compile.java               --> Compile Java Files" />
+      <echo message="dev.deploy                 --> Deploy to Development Machine" />
+      <echo message="" />
+      <echo message="appserver.deploy           --> Deploy to Operational Machine" />
+      <echo message="" />
+      <echo message="clean                      --> Clean Output Folder" />
+      <echo message="" />
+  </target>
+
+  <target name="init">
+    <echo message="Init Ant" /> 
+  </target>
+
+	<!-- jenkins 테스트  -->
+	<path id="project.classpath">
+        <fileset dir="${jenkins.deploy.dir}/${jenkins.deploy.dir.lib}" includes="**/*.jar" />
+    </path>
+    <!-- depends="init" -->
+    
+    <target name="deploy" depends="build" description="DeveloperServ Deploy">
+        <copy todir="${was.deploy.dir}/${was.deploy.dir.classes}" overwrite="true">
+            <fileset dir="${jenkins.deploy.dir}/${jenkins.deploy.dir.classes}" >
+               <include name="**/*.class" /> 
+            </fileset>
+        </copy>
+    </target>
+    
+    <target name="build" >
+        <javac srcdir="${jenkins.deploy.dir}/${jenkins.deploy.dir.src}" 
+        		destdir="${jenkins.deploy.dir}/${jenkins.deploy.dir.classes}" includes="**/*.java" debug="true" failonerror="true">
+            <classpath refid="project.classpath" />
+        </javac>
+    </target>
+    
+  <target name="clean" description="Clear BuildDir, DeployDir.">
+      <!-- echo>Delete ${build.dir}</echo -->
+      <echo>Delete ${jenkins.deploy.dir}</echo>
+      <!-- delete dir="${build.dir}"></delete -->
+      <delete dir="${jenkins.deploy.dir}/*.*"></delete>
+  </target>
+  <target name="clean.bin" description="Clear BuildDir, DeployDir.">
+	<delete dir="${build.dir}"/>
+	<delete dir="${jenkins.deploy.dir}/${jenkins.deploy.dir.classes}"/>
+  </target>
+	
+  <!-- target name="deploy" description="DeveloperServ Deploy">
+    <echo>Deploy ${was.deploy.dir}/${name}</echo>
+    <sync todir="${was.deploy.dir}/${name}">
+      <fileset dir="${web.dir}">
+          <include name="**/*.*"/>
+          <exclude name="${report.dir}/*.*"/>
+          <exclude name="com/nakanara/**/sys/*TEST.*" />
+      </fileset>
+    </sync>
+  </target -->
+
+
+
+</project> 
