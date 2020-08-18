@@ -5,6 +5,17 @@ public class RequestShop {
 	String name;
 	 String age;
 	 String orderNumber;
+	 String WSID_NAME;
+	 
+	 
+	 
+	 
+	public String getWSID_NAME() {
+		return WSID_NAME;
+	}
+	public void setWSID_NAME(String wSID_NAME) {
+		WSID_NAME = wSID_NAME;
+	}
 	public String getName() {
 		return name;
 	}
