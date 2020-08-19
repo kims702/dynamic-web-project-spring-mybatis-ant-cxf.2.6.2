@@ -1,0 +1,33 @@
+
+http://localhost:8080/wsdl/swr.SWRB
+http://localhost:8080/wsdl/swr.SWRB?wsdl
+
+cxf client 테스트 방법 
+https://malchooni.name/entry/apache-cxf-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0
+
+
+
+
+webservice 호출 url 
+http://localhost:8080/webService
+	>> <servlet-mapping>
+	  <servlet-name>cxf</servlet-name>
+<url-pattern>/webService/*</url-pattern> ---->>>	  <url-pattern>/wsdl/*</url-pattern>
+	</servlet-mapping>
+	
+	<jaxws:endpoint id="hitechwebservice" implementor="com.kims.web.webservice.HitechWebServiceExampleImpl" address="/swr.SWRB" />
+	
+	hitechwebservice ->>  swr.SWRB
+		 
+변경 http://localhost:8080/wsdl/swr.SWRB?wsdl
+
+
+
+참고 url >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+https://ecolumbus.tistory.com/44
+https://jeong-pro.tistory.com/129
+https://archive.apache.org/dist/cxf/2.6.2/
+
+maven 프로젝트 생성
+https://victorydntmd.tistory.com/159
+
