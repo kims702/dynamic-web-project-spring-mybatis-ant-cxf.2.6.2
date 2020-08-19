@@ -8,5 +8,48 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/asm-3.3.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/aspectjrt-1.6.10.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-rt-bindings-soap-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-rt-bindings-xml-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-rt-core-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-rt-frontend-jaxrs-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-rt-frontend-jaxws-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-rt-frontend-simple-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-rt-transports-http-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-rt-ws-addr-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-rt-ws-policy-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/geronimo-javamail_1.4_spec-1.7.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-core-asl-1.8.5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-mapper-asl-1.8.5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.inject-1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jaxb-impl-2.1.13.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jcl-over-slf4j-1.6.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsp-api-2.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsr311-api-1.1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/junit-4.7.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/neethi-3.0.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api-2.5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.6.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-log4j12-1.6.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-aop-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-asm-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-beans-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-context-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-context-support-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-core-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-expression-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-web-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-webmvc-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/stax2-api-3.1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/woodstox-core-asl-4.1.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/wsdl4j-1.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xml-resolver-1.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xmlschema-core-2.0.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-api-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cxf-rt-databinding-jaxb-2.6.2.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
