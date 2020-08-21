@@ -3,7 +3,10 @@ http://localhost:8080/wsdl/swr.SWRB
 http://localhost:8080/wsdl/swr.SWRB?wsdl
 
 cxf client 테스트 방법 
-https://malchooni.name/entry/apache-cxf-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0
+	https://malchooni.name/entry/apache-cxf-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0
+	
+	
+	HitechWebServiceExample_HitechWebServiceExampleImplPort_Client.java << 실행 
 
 
 
