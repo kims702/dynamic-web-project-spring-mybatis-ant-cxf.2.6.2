@@ -53,6 +53,27 @@
             </fileset>
         </copy>
     </target>
+	
+	<target name="deploy_lib" depends="build" description="DeveloperServ Deploy">
+        <copy todir="${was.deploy.dir}/${was.deploy.dir.lib}" overwrite="true">
+            <fileset dir="${jenkins.deploy.dir}/${jenkins.deploy.dir.lib}" >
+            </fileset>
+        </copy>
+    </target>
+	
+	<target name="deploy_spring" depends="build" description="DeveloperServ Deploy">
+        <copy todir="${was.deploy.dir}/${was.deploy.dir.spring}" overwrite="true">
+            <fileset dir="${jenkins.deploy.dir}/${jenkins.deploy.dir.spring}" >
+            </fileset>
+        </copy>
+    </target>
+	<target name="deploy_views" depends="build" description="DeveloperServ Deploy">
+        <copy todir="${was.deploy.dir}/${was.deploy.dir.views}" overwrite="true">
+            <fileset dir="${jenkins.deploy.dir}/${jenkins.deploy.dir.views}" >
+            </fileset>
+        </copy>
+    </target>
+	
     
     <target name="build" >
         <javac srcdir="${jenkins.deploy.dir}/${jenkins.deploy.dir.src}" 
