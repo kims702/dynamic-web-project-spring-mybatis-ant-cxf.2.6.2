@@ -37,11 +37,13 @@ https://victorydntmd.tistory.com/159
 
 
 
+9월 12, 2020 7:38:25 오전 org.apache.catalina.startup.Catalina stopServer
+심각: 셧다운 포트가 설정되지 않았습니다. OS 시그널을 통해 서버를 셧다운합니다. 서버는 아직 셧다운되지 않았습니다.
 
 
 
 
-
+>> mybatis 버전 오류
 심각: Exception sending context initialized event to listener instance of class org.springframework.web.context.ContextLoaderListener
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'homeController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.kims.web.service.iHptbMenuService com.kims.web.HomeController.service; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No matching bean of type [com.kims.web.service.iHptbMenuService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
