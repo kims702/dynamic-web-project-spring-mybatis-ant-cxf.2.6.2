@@ -12,6 +12,7 @@ cxf client 테스트 방법
 
 
 webservice 호출 url 
+web.xml
 http://localhost:8080/webService
 	>> <servlet-mapping>
 	  <servlet-name>cxf</servlet-name>
