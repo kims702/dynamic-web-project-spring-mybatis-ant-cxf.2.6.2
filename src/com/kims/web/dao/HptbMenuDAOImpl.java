@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
+@Repository
 public class HptbMenuDAOImpl implements iHptbMenuDAO {
 
 	
@@ -21,7 +23,7 @@ public class HptbMenuDAOImpl implements iHptbMenuDAO {
 		List<HashMap<String, Object>> list = new ArrayList<HashMap<String,Object>>();
 //		list = getSqlSession().selectList("selectLOG");
 		
-		list = query.selectList("selectLOG");
+		list = query.selectList("selectHptbMenu");
 		return list;
 	}
 }
