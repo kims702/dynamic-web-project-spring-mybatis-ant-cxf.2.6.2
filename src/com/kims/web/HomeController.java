@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
+import com.kims.web.service.iHptbMenuService;
 import com.kims.web.vo.RequestShop;
 
 /**
@@ -27,6 +29,13 @@ public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
+	
+
+	@Autowired
+	private iHptbMenuService service;
+	
+	
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 * 
@@ -42,6 +51,8 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
+		service.selectHptbMenu();
+		
 		System.out.println(
 				"###################____________________ant clean build deploy >> index ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
