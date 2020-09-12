@@ -17,8 +17,8 @@ public class HptbMenuServiceImpl implements iHptbMenuService{
 	@Override
 	public List<HashMap<String, Object>> selectHptbMenu() {
 		List<HashMap<String, Object>> list = dao.selectHPTB_MENU();
-		System.out.println("list:" + list.size());
-		return null;
+		
+		return list;
 	}
 
 }

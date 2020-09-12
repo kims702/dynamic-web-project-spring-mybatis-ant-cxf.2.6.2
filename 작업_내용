@@ -1,3 +1,8 @@
+2020.09.13 spring-task 추가 (job Scheduler )
+
+
+
+
 호출 url
 http://localhost:8080/wsdl/swr.SWRB
 http://localhost:8080/wsdl/swr.SWRB?wsdl
@@ -81,3 +86,11 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No m
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:478)
 	... 24 more
 
+
+
+
+
+
+
+9월 13, 2020 7:21:47 오전 org.apache.catalina.startup.Catalina stopServer
+심각: 셧다운 포트가 설정되지 않았습니다. OS 시그널을 통해 서버를 셧다운합니다. 서버는 아직 셧다운되지 않았습니다.

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:task="http://www.springframework.org/schema/task" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
@@ -32,4 +33,30 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>	
+	
+	
+	<!-- add task -->
+	<task:scheduler id="scheduler" pool-size="10" />
+	 <task:executor id="taskExecutor" pool-size="10"/>
+	 <task:annotation-driven executor="taskExecutor" scheduler="scheduler"/>
+	
+	
+	
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	    <property name="corePoolSize" value="5"/>
+	    <property name="maxPoolSize" value="15"/>
+	    <property name="queueCapacity" value="100"/>
+	    <property name="threadNamePrefix" value="executor-task-"/>
+	    <property name="threadGroupName" value="executor-tasks"/>
+	</bean>
+	<bean id="taskScheduler" class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
+	    <property name="poolSize" value="5"/>
+	    <property name="threadNamePrefix" value="scheduled-task-"/>
+	    <property name="threadGroupName" value="scheduled-tasks"/>
+	</bean>  
+	
+	<bean id="Scheduler" class="com.kims.web.scheduler.Scheduler"></bean>
+	<task:scheduled-tasks> 
+		<task:scheduled ref="Scheduler" method="cronHptbMenu" cron="10 * * * * *" /> 
+	</task:scheduled-tasks> 
 </beans>
