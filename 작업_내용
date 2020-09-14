@@ -94,3 +94,25 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No m
 
 9월 13, 2020 7:21:47 오전 org.apache.catalina.startup.Catalina stopServer
 심각: 셧다운 포트가 설정되지 않았습니다. OS 시그널을 통해 서버를 셧다운합니다. 서버는 아직 셧다운되지 않았습니다.
+
+
+
+jdbc.url 수정
+	jdbc.url=jdbc:oracle:thin:@192.168.0.25:1521:ORAQONE
+	>> jdbc.url=jdbc:oracle:thin:@192.168.0.25:1521/ORAQONE
+
+
+심각: Servlet.service() for servlet [appServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ 
+### The error may exist in ServletContext resource [/WEB-INF/resources/query/HPTB_MENU.xml]
+### The error may involve com.kims.web.dao.iHptbMenuDAO.selectHptbMenu
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ ] with root cause
+oracle.net.ns.NetException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ 
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:399)

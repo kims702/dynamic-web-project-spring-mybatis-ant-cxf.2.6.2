@@ -28,7 +28,19 @@ public class Scheduler {
 		String formattedDate = dateFormat.format(date);
 		List<HashMap<String, Object>> list = service.selectHptbMenu();
 		
-		System.out.println("list:" + list.size() + ",  formattedDate : " + formattedDate);
+		System.out.println("cronHptbMenu list:" + list.size() + ",  formattedDate : " + formattedDate);
+	}
+	
+	
+	public void cronCountTable() {
+		Locale locale = new Locale("alpha-2");
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+		List<HashMap<String, Object>> list = service.selectHptbMenu();
+		
+		System.out.println("cronCountTable list:" + list.size() + ",  formattedDate : " + formattedDate);
 	}
 
 }

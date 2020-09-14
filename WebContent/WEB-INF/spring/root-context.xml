@@ -58,5 +58,6 @@
 	<bean id="Scheduler" class="com.kims.web.scheduler.Scheduler"></bean>
 	<task:scheduled-tasks> 
 		<task:scheduled ref="Scheduler" method="cronHptbMenu" cron="10 * * * * *" /> 
+		<task:scheduled ref="Scheduler" method="cronCountTable" cron="10 * * * * *" />
 	</task:scheduled-tasks> 
 </beans>
