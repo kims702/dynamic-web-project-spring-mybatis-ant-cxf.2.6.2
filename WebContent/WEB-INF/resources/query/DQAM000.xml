@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kims.web.dao.iDQAM000DAO" >
+	<!-- select Query -->
+	<select id="S001" parameterType="java.util.HashMap" resultType="java.util.HashMap" fetchSize="50" ><![CDATA[
+	/* Biz: h.oq.qam.qamb.db.DQAM000.S001 MOD_LOAD [ fun_Form_Load ] */
+	/* IO: 박성한 대리,2019-05-20T09:44:08(김현진 과장,2016-07-29T11:11:43) */
+	SELECT TO_CHAR(SYSDATE-1, 'yyyymmdd') AS CUR_YESTERDAY
+	      ,TO_CHAR(SYSDATE, 'yyyymmdd') AS CUR_TODAY
+	      ,TO_CHAR(SYSDATE,'yyyy') AS CUR_YEAR
+	      ,TO_CHAR(SYSDATE,'mm') AS TO_MONTH
+	      ,TO_CHAR(ADD_MONTHS(SYSDATE, 0),'mm') AS FR_MONTH
+	      ,SUBSTR(TO_WEEK, LENGTH(TO_WEEK)-1, 2) AS TO_WEEK
+	      ,SUBSTR(FR_WEEK, LENGTH(FR_WEEK)-1, 2) AS FR_WEEK
+	      ,CUR_QUARTER
+	  FROM (
+			SELECT TO_CHAR(SYSDATE-1, 'yyyymmdd') AS CUR_YESTERDAY
+			      ,TO_CHAR(SYSDATE, 'yyyymmdd') AS CUR_TODAY
+			      ,TO_CHAR(SYSDATE,'yyyy') AS CUR_YEAR
+			      ,TO_CHAR(SYSDATE,'mm') AS TO_MONTH
+			      ,TO_CHAR(ADD_MONTHS(SYSDATE, 0),'mm') AS FR_MONTH
+			      ,A.PLAN_WEEK AS TO_WEEK
+			      ,(SELECT PLAN_WEEK FROM HCOB_CAL WHERE FISCAL_DAY = (SELECT MIN(TO_DATE(FISCAL_DAY, 'YYYYMMDD')) - 1 FROM HCOB_CAL WHERE PLAN_WEEK = A.PLAN_WEEK)) AS FR_WEEK
+			      ,SUBSTR(A.PLAN_QUARTER, LENGTH(A.PLAN_QUARTER)-1, 2) AS CUR_QUARTER
+			  FROM HCOB_CAL A
+			 WHERE 1=1
+			   AND FISCAL_DAY = TO_CHAR(SYSDATE, 'YYYYMMDD')
+	       )]]>
+		</select>
+</mapper>
