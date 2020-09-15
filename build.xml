@@ -73,6 +73,12 @@
             </fileset>
         </copy>
     </target>
+	<target name="deploy_resources" depends="build" description="DeveloperServ Deploy">
+	        <copy todir="${was.deploy.dir}/${was.deploy.dir.resources}" overwrite="true">
+	            <fileset dir="${jenkins.deploy.dir}/${jenkins.deploy.dir.resources}" >
+	            </fileset>
+	        </copy>
+	    </target>
 	
     
     <target name="build" >
