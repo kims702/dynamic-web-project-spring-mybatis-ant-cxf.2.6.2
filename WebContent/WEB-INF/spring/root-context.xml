@@ -12,6 +12,8 @@
 		<property name="locations" value="/WEB-INF/resources/jdbc.properties" />
 		<property name="fileEncoding" value="UTF-8" />
 	</bean>
+	
+	<!-- oracle -->
 	<!-- bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource" -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
 		<!-- when use this "SimpleDriverDataSource"  property name="driverClass" value="${jdbc.driverClassName}" -->
@@ -33,6 +35,35 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>	
+	<!-- oracle -->
+	
+	
+	
+	<!-- bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource" -->
+	<bean id="dataSource_mssql" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<!-- when use this "SimpleDriverDataSource"  property name="driverClass" value="${jdbc.driverClassName}" -->
+		<property name="driverClassName" value="${ms_jdbc.driverClassName}" /> 
+		<property name="url" value="${ms_jdbc.url}" /> 
+		<property name="username" value="${ms_jdbc.username}" /> 
+		<property name="password" value="${ms_jdbc.password}" /> 
+	</bean>  
+	
+	<!-- MyBatis-Spring -->
+	<bean id="sqlSessionFactory_mssql" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource_mssql" />
+		<property name="mapperLocations" value="/WEB-INF/resources/query/**" />
+	</bean>
+	<bean id="sqlSession_mssql" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory_mssql" />
+	</bean>
+	<!-- 
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean> -->	
+	<!-- oracle -->
+	
+	
+	
 	
 	
 	<!-- add task -->
@@ -60,6 +91,8 @@
 		<task:scheduled ref="Scheduler" method="cronHptbMenu" cron="10 * * * * *" /> 
 		<task:scheduled ref="Scheduler" method="cronCountTable" cron="10 * * * * *" />
 		<task:scheduled ref="Scheduler" method="cronCountDQAM" cron="10 * * * * *" />
+		<task:scheduled ref="Scheduler" method="cronMsSQLTable" cron="10 * * * * *" />
+		
 		
 	</task:scheduled-tasks> 
 </beans>

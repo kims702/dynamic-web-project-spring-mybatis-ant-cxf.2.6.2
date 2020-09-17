@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.kims.web.service.iCodeDtlService;
 import com.kims.web.service.iDQAM000Service;
 import com.kims.web.service.iHptbMenuService;
 
@@ -22,6 +23,8 @@ public class Scheduler {
 	
 	@Autowired
 	private iDQAM000Service dqamService;
+	
+	@Autowired private iCodeDtlService codeDtlService; 
 	
 	
 	public void cronCountDQAM() {
@@ -56,10 +59,22 @@ public class Scheduler {
 		String formattedDate = dateFormat.format(date);
 		List<HashMap<String, Object>> list = service.selectHptbMenu();
 		
-		System.out.println("cronCountTable list:" + list.size() + ",  formattedDate : " + formattedDate);
+		System.out.println("cronCountTable list:::::::" + list.size() + ",  formattedDate : " + formattedDate);
 	}
 	
 	
+	
+	public void cronMsSQLTable() {
+		Locale locale = new Locale("alpha-2");
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+		
+		List<HashMap<String, Object>> list = codeDtlService.selectCodeDtl();
+		
+		System.out.println("cronMsSQLTable list:" + list.size() + ",  formattedDate : " + formattedDate);
+	}
 	
 	
 

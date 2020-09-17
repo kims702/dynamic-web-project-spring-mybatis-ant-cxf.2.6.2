@@ -3,6 +3,7 @@ package com.kims.web;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
+import com.kims.web.service.iCodeDtlService;
 import com.kims.web.service.iHptbMenuService;
 import com.kims.web.vo.RequestShop;
 
@@ -36,7 +38,7 @@ public class HomeController {
 	@Autowired
 	private iHptbMenuService service;
 	
-	
+	@Autowired private iCodeDtlService codeDtlService; 
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -55,9 +57,11 @@ public class HomeController {
 
 		service.selectHptbMenu();
 		
+		
 		System.out.println(
 				"###################____________________ant clean build deploy >> index ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
+		
 		return "home";
 	}
 
