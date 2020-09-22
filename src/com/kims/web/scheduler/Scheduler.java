@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.kims.web.service.CallProceduresService;
 import com.kims.web.service.iCodeDtlService;
 import com.kims.web.service.iDQAM000Service;
 import com.kims.web.service.iHptbMenuService;
@@ -24,8 +25,24 @@ public class Scheduler {
 	@Autowired
 	private iDQAM000Service dqamService;
 	
-	@Autowired private iCodeDtlService codeDtlService; 
+	@Autowired private iCodeDtlService codeDtlService;
 	
+	
+	@Autowired private CallProceduresService callProceduresService;
+	
+	// callProceduresService
+	public void cronCallProceduresService() {
+		Locale locale = new Locale("alpha-2");
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+		String fname = "";
+		callProceduresService.callMigrationQA(fname);
+		
+		System.out.println("call cronCallProceduresService " + ",  formattedDate : " + formattedDate);
+	}
+
 	
 	public void cronCountDQAM() {
 		Locale locale = new Locale("alpha-2");

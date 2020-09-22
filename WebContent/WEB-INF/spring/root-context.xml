@@ -92,6 +92,7 @@
 		<task:scheduled ref="Scheduler" method="cronCountTable" cron="10 * * * * *" />
 		<task:scheduled ref="Scheduler" method="cronCountDQAM" cron="10 * * * * *" />
 		<task:scheduled ref="Scheduler" method="cronMsSQLTable" cron="10 * * * * *" />
+		<task:scheduled ref="Scheduler" method="cronCallProceduresService" cron="10 * * * * *" />
 		
 		
 	</task:scheduled-tasks> 
